@@ -5,16 +5,118 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🔍Dictionary</title>
+    <link rel="stylesheet" href="style.css" defer>
+    <script src="https://kit.fontawesome.com/ee31d545f8.js"
+            crossorigin="anonymous" defer ></script>
 </head>
 <body>
-    <header class="header">
-
-    </header>
+    <nav class="navbar">
+        <div class="nav_logo">
+            <img src="assets/nav_icon_50.png" alt="" srcset="">
+        </div>
+        <div class="nav_right">
+                <select id="font_options" >
+                    <option value="serif" data-font-select >Serif</option>
+                    <option value="monospace" data-font-select >monospace</option>
+                </select>
+                <div class="nav_toggle_mode" >
+                        <label  class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                            
+                        </label>
+                </div>
+                <img src="assets\nav_toggle_dark.png"
+                     alt=""
+                     width="20"
+                     srcset="">
+        </div>
+    </nav>
     <main class="app">
+        <div class="search_box">
+            <input type="text" name="" id="">
+            <img src="assets\search.png" alt="" srcset="">
+        </div>
 
+
+
+        <div class="app_content">
+            <header class="word_header">
+                <div class="word_title">
+                    <heading>
+                        keyboard
+                    </heading>
+                    <subheading class="word_subtitle">
+                        /'ki:bc:d/'
+                    </subheading>
+                </div>
+                <div class="word_play">
+                    <!-- background #e7cfff -->
+                   <img 
+                   src="assets\play.png" alt="" srcset=""> 
+                </div>
+            </header>
+
+
+            <section class="new_section">
+                <legend>noun</legend>
+                <hr>
+            </section>
+
+
+
+            <div class="word_noun">
+                <h2 class="back_heading" >Meaning</h2>
+                <ul>
+                    <li>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae excepturi tempora aperiam blanditiis, magni iste maxime nemo, ullam aliquid nihil adipisci laboriosam corporis nostrum explicabo natus? Inventore, a numquam nam voluptate maxime facilis quod consequuntur temporibus obcaecati, reprehenderit suscipit quam laudantium natus similique debitis quos tempora neque nihil nulla aut.
+                    </li>
+                    <li>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique molestias omnis fugit facilis a quisquam culpa perferendis delectus commodi dolore dolor, labore provident ducimus aliquid eius, soluta tempora voluptates rem eum beatae, laborum voluptatum dolorum. Nesciunt voluptate in officiis porro repellat eius laudantium voluptatibus perferendis qui, quisquam, ipsum assumenda alias?
+                    </li>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. At hic nobis aliquid? Ducimus facere minus fuga consectetur deserunt officia, dolores veritatis totam eos? Odit tenetur explicabo inventore earum impedit nam vel! Mollitia ad dolorum corrupti tenetur blanditiis. Voluptas aliquid quas iusto, at dolorum, consequatur ducimus nobis, natus aut laudantium voluptates.
+                </ul>
+
+                <h2 class="back_heading">
+                    Synonyms 
+                    <span>
+                        electronic keyboard
+                    </span>
+                </h2>
+            </div>
+
+
+
+            <section class="new_section">
+                <legend>verb</legend>
+                <hr>
+            </section>
+
+
+            <div class="word_verb">
+                <h2 class="back_heading">Meaning</h2>
+                <ul class="word_verb_list">
+                    <li>To type on a computer keyboard.</li>
+                    <li class="inside_list_item">
+                        "Keyboarding is the part of this job I hate the most."
+                    </li>
+                </ul>
+            </div>
+
+        </div>
     </main>
     <footer class="footer" >
-
+        <p>
+            Source 
+            <a href="" target="_blank" >
+            http://www.google.com
+            </a>
+            <img src="" alt="link">
+        </p>
     </footer>
+
+
+
+    <script src="script.js"></script>
 </body>
 </html>
