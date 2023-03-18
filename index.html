@@ -35,10 +35,10 @@
     </nav>
     <main class="app">
         <div class="search_box flex-center justify-between">
-            <input type="text" name="search" id="search"  value="bing" 
+            <input placeholder="Search..." type="text" name="search" id="search"  value="bing" 
             onchange="searchMeaning()"
             >
-            <img src="assets\search.png"  alt="" srcset="">
+            <img onclick="searchMeaning()" src="assets\search.png"  alt="" srcset="">
         </div>
 
 
@@ -55,7 +55,8 @@
                 </div>
                 <div class="word_play flex-center">
                     <!-- background #e7cfff -->
-                   <img 
+                   <img
+                   onclick="playAudio()" 
                    src="assets\play.png" alt="" srcset=""> 
                 </div>
             </div>
@@ -108,7 +109,9 @@
         
     </footer>
 
-
+    <audio autoplay>
+        <source id="word_audio_src" src="" type="audio/mp3">
+    </audio>
 
     <script src="script.js"></script>
 </body>

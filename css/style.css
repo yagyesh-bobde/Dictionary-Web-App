@@ -32,16 +32,21 @@ nav, .nav_right{
 
 select, option { 
     outline: none;
+    
     border: none;
 }
 
 select {
     border-right: 2px solid rgb(209, 206, 206);
     padding-right: 25px;
+    width: 50%;
+}
+
+option{ 
+    background-color: transparent;
 }
 
 .nav_toggle_mode {
-    
     padding-left: 15px;
     display: flex;
     align-items: center;
@@ -65,7 +70,11 @@ select {
     right: 0;
     bottom: 0;
     background-color: #ccc;
+     -webkit-transition: .4s;
+  transition: .4s;
 }
+
+
 
 /* * MAIN */
 

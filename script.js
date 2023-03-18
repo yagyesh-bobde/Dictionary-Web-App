@@ -6,23 +6,23 @@ function showLoading() {
 }
 
 async function searchMeaning() {
-    
     showLoad = true
     const word = document.getElementById('search')
     if(!word.value) {
         // 
     }
-    let fetchData = fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word.value}`)
-    fetchData.then((response) => {
-        return response.json()
-    }).then(res => {
-        
-        showLoad = false
-        return showData(res[0])
-    })
-    
-    // console.log(data)
-    
+    if(data.word === word.value) {
+        return alert('already searched');
+    } else {
+        let fetchData = fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word.value}`)
+        fetchData.then((response) => {
+            return response.json()
+        }).then(res => {
+            data=res[0]
+            showLoad = false
+            return showData(res[0])
+        })
+    }
 }
 
 function showData(newData) {
@@ -43,7 +43,7 @@ function showData(newData) {
     let nounMeaning = newData.meanings[0]
     let i = 0
     let nounDiv = document.querySelector('.word_div_desc ul')
-    while (i < nounMeaning.definitions.length){
+    while (nounMeaning && nounMeaning.definitions && i < nounMeaning.definitions.length){
         let newLi = document.createElement('li')
         let newSpan = document.createElement('span')
         newSpan.textContent = nounMeaning.definitions[i].definition
@@ -56,7 +56,7 @@ function showData(newData) {
     let verbMeaning = newData.meanings[1]
     i = 0
     let verbDiv = document.getElementById('word_verb_list')
-    while (i < verbMeaning.definitions.length) {
+    while (verbMeaning && verbMeaning.definitions && i < verbMeaning.definitions.length) {
         let newLi = document.createElement('li')
         let newLiInside = document.createElement('li')
         let newSpan = document.createElement('span')
@@ -71,4 +71,14 @@ function showData(newData) {
 }
 
 
-searchMeaning()
+function playAudio() {
+    let audioSorces = data?.phonetics
+    if (audioSorces.length === 0) return alert('No audio for this word')
+    let audioPlay = document.getElementsByTagName('audio')[0]
+    for (let i = 0; i < audioSorces.length ; i++) {
+        if (audioSorces[i].audio) {
+            audioPlay.src = audioSorces[i].audio 
+            audioPlay.play()
+        }
+    }
+}
