@@ -4,32 +4,47 @@ let showLoad = false
 function showLoading() {
 
 }
-
 async function searchMeaning() {
+    const app = document.getElementsByClassName('app_content')[0]
+    const empty = document.getElementsByClassName('empty_screen')[0]
+    app.style.display = "flex";
+    empty.style.display = "none";
     showLoad = true
     const word = document.getElementById('search')
-    if(!word.value) {
-        // 
+
+    try {
+        
+        if (!word.value) {
+            // alert
+            alert('search word is empty')
+        }
+        if (data.word === word.value) {
+            return ;
+        } else {
+            let fetchData = fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word.value}`)
+            fetchData.then((response) => {
+                return response.json()
+            }).then(res => {
+                data = res[0]
+                showLoad = false
+                return showData(res[0])
+            })
+        }
+
+    } catch (error) {
+       return alert(error)
     }
-    if(data.word === word.value) {
-        return alert('already searched');
-    } else {
-        let fetchData = fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word.value}`)
-        fetchData.then((response) => {
-            return response.json()
-        }).then(res => {
-            data=res[0]
-            showLoad = false
-            return showData(res[0])
-        })
-    }
+    
 }
 
 function showData(newData) {
     console.log(newData)
     if (!newData) {
-        console.error("no data");
-        alert("No data on the search term")
+        const app = document.getElementsByClassName('app_content')[0]
+        const empty = document.getElementsByClassName('empty_screen')[0]
+        app.style.display = "none";
+        empty.style.display = "grid";
+        empty.innerHMTL = "Oops! Word not found."
     }
     const word_heading = document.getElementById('word_heading')
     const word_pne = document.getElementById('word_subtitle')
@@ -67,13 +82,18 @@ function showData(newData) {
         verbDiv.append(newLi)
         i++;
     }
+        
+    const source_url = document.getElementById('source_url')
+    source_url.href = newData.sourceUrls[0]
+    source_url.textContent = newData.sourceUrls[0]
+    console.log(newData)
     
 }
 
 
 function playAudio() {
     let audioSorces = data?.phonetics
-    if (audioSorces.length === 0) return alert('No audio for this word')
+    if (audioSorces.length === 0) return alert('No audio avilable this word')
     let audioPlay = document.getElementsByTagName('audio')[0]
     for (let i = 0; i < audioSorces.length ; i++) {
         if (audioSorces[i].audio) {
@@ -111,4 +131,14 @@ toggle.onclick = function () {
     legends.forEach((legend) => {
         legend.classList.toggle('active')
     })
+
+
+    const lis = document.querySelectorAll('li span')
+    lis.forEach((li) => {
+        li.classList.toggle('active')
+    })
+
+
+    const select = document.getElementsByTagName('select')[0]
+    select.classList.toggle('active')
 }

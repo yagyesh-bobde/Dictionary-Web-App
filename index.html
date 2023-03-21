@@ -22,7 +22,6 @@
                 </select>
                 <div class="toggle_mode" >
                     <div class="toggle_mode_button">
-
                     </div>
                 </div>
                 <img 
@@ -36,7 +35,7 @@
     </nav>
     <main class="app">
         <div class="search_box flex-center justify-between">
-            <input placeholder="Search..." type="text" name="search" id="search"  value="bing" 
+            <input placeholder="Search..." type="text" name="search" id="search"  
             onchange="searchMeaning()"
             >
             <img onclick="searchMeaning()" src="assets\search.png"  alt="" srcset="">
@@ -94,21 +93,30 @@
                 </ul>
                 </div>
             </div>
+            <footer class="footer flex">
+                <p>
+                    Source
+                </p>
+                <div>
+                    <a id="source_url" href=""
+                       target="_blank">
+                        
+                    </a>
+                    <img src="assets/link.svg"
+                         width="10px"
+                         alt="link">
+                </div>
+            
+            </footer>
+        </div>
 
+
+        <div class="empty_screen">
+            Search For A Word 
         </div>
     </main>
     <hr>
-    <footer class="footer flex" >
-        <p>
-            Source 
-        </p>
-        <div>
-            <a href="" target="_blank" >
-            http://www.google.com
-            </a>
-        <img src="assets/link.svg" width="10px" alt="link">            </div>
-        
-    </footer>
+    
 
     <audio autoplay>
         <source id="word_audio_src" src="" type="audio/mp3">

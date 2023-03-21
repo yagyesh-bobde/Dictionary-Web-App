@@ -34,8 +34,15 @@ nav, .nav_right{
 
 select, option { 
     outline: none;
-    background-color: var(--background);
+    background-color: transparent;
     border: none;
+    font-weight: 600;
+    font-size: small;
+    letter-spacing: 0.75px;
+}
+
+select.active{ 
+    color: white;
 }
 
 select {
@@ -86,10 +93,7 @@ option{
 }
 
 
-body.active{ 
-    color: white;
-    background-color: #050505;
-}
+
 
 /* * MAIN */
 
@@ -178,11 +182,23 @@ header {
     /* margin-bottom: 26px; */
 }
 
+.empty_screen{ 
+    display: grid;
+    height: 100%;
+    place-content: center;
+    font-size: 50px;
+    font-weight: 600;
+    color: gray;
+    text-align: center;
+    min-height: 400px;
+}
+
 
 .app_content{ 
     display: flex;
     flex-direction: column;
     gap: 25px;
+    display: none;
 }
 
 .new_section { 
@@ -233,6 +249,10 @@ li {
 li span{ 
     color: black;
 }
+
+li span.active{ 
+    color: white;
+}
 .inside_list_item { 
     list-style: none;
 }
@@ -254,7 +274,10 @@ footer a:active {
     color: black;
 }
 
-
+body.active{ 
+    color: white;
+    background-color: #050505;
+}
 
 /* * tablet devices */
 @media screen and (min-width: 1125px) and (max-width: 1280px) {
