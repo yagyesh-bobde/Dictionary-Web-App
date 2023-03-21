@@ -82,3 +82,33 @@ function playAudio() {
         }
     }
 }
+
+
+
+
+
+
+
+
+// toggle 
+const toggle = document.getElementsByClassName('toggle_mode')[0]
+const body = document.getElementsByTagName('body')[0]
+
+
+
+toggle.onclick = function () {
+    toggle.classList.toggle('active')
+    body.classList.toggle('active')
+
+    // search box
+    const search_box = document.querySelector('.search_box')
+    const search_input = document.querySelector('.search_box input')
+
+    search_box.classList.toggle('active')
+    search_input.classList.toggle('active')
+
+    const legends = document.querySelectorAll('.new_section legend')
+    legends.forEach((legend) => {
+        legend.classList.toggle('active')
+    })
+}

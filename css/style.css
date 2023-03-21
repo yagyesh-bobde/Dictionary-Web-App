@@ -4,6 +4,9 @@
     --gray: rgb(244,244,244);
     --background: white;
     --font-light: rgb(146,146,146);
+
+    --dark-background: #050505;
+    --dark-search: #1f1f1f;
 }
 
 
@@ -15,7 +18,6 @@
 
 body{ 
     padding: 20px 375px 75px 375px;
-    /* padding: 20px 225px; */
     color: black;
 }
 
@@ -32,49 +34,62 @@ nav, .nav_right{
 
 select, option { 
     outline: none;
-    
+    background-color: var(--background);
     border: none;
 }
 
 select {
     border-right: 2px solid rgb(209, 206, 206);
     padding-right: 25px;
-    width: 50%;
 }
 
 option{ 
     background-color: transparent;
+    outline: none;
+    border: none;
+    height: 25px;
 }
 
-.nav_toggle_mode {
-    padding-left: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+
+/* * TOGGLE BUTTON */
+.toggle_mode {
+    cursor: pointer;
+    width: 50px;
+    background-color: white;
+    height: 25px;
+    border-radius: 25px;
+    transition: 0.5s;
+    box-shadow: inset 0 2px 60px rgba(0,0,0,0.1),
+                inset 0 2px 8px rgba(0,0,0,0.1),
+                inset 0 -4px 4px rgba(0,0,0,0.05);
     position: relative;
 }
 
-/* * TOGGLE BUTTON */
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-/* SLIDER */
-.slider {
+.toggle_mode_button {
     position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
+    width: 25px;
+    height: 100%;
+    transform: scale(0.9);
+    border-radius: 50%;
     right: 0;
-    bottom: 0;
-    background-color: #ccc;
-     -webkit-transition: .4s;
-  transition: .4s;
+    left:0;
+    background : white;
 }
 
 
+.toggle_mode.active {
+    background: var(--purple);
+}
+
+.toggle_mode.active .toggle_mode_button {
+    left: 25px;
+}
+
+
+body.active{ 
+    color: white;
+    background-color: #050505;
+}
 
 /* * MAIN */
 
@@ -90,7 +105,18 @@ option{
     /* border: 2px solid gray; */
     padding: 0 15px 0 10px;
     background-color: var(--gray);
+    font-weight: 500;
+    letter-spacing: 1.75px;
 }
+
+.search_box.active,
+.search_box input.active {
+    background-color: var(--dark-search);
+    color: white;
+    
+}
+
+
 .search_box input:focus {
     outline: none;
     border: none;
@@ -131,6 +157,9 @@ option{
     flex-grow: 0.09;
     cursor: pointer;
     max-width: 60px;
+    min-width: 50px;
+    min-height: 50px;
+    max-height: 65px;
     transition: 256ms;
 }
 .word_play img {
@@ -167,6 +196,11 @@ header {
     padding: 0 15px 0 0;
     font-size: large;
 }
+
+.new_section legend.active{ 
+    background-color: var(--dark-background);
+}
+
 hr{ 
     border-color: var(--gray);
     opacity: 0.25;
