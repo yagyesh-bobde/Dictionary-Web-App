@@ -5,7 +5,7 @@
 ## Site Working Demo
 <center>
     <video  width="500" height="350" mute controls>
-        <source  src=".\assets\output\working.mp4"  type="video/mp4" >   
+        <source  src="https://github.com/yagyesh-bobde/Dictionary-Web-App/blob/main/assets/output/working.mp4"  type="video/mp4" >   
     </video>
 </center>
 
