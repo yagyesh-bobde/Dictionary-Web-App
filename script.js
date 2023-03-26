@@ -1,15 +1,18 @@
 let data = {}
 
 let showLoad = false
+
 function showLoading() {
 
 }
+
 async function searchMeaning() {
+    
     const app = document.getElementsByClassName('app_content')[0]
     const empty = document.getElementsByClassName('empty_screen')[0]
-    app.style.display = "flex";
-    empty.style.display = "none";
-    showLoad = true
+    app.style.display = "none";
+    empty.style.display = "grid";
+    empty.innerHMTL = "Loading"
     const word = document.getElementById('search')
 
     try {
@@ -39,13 +42,15 @@ async function searchMeaning() {
 
 function showData(newData) {
     console.log(newData)
+    const app = document.getElementsByClassName('app_content')[0]
+    const empty = document.getElementsByClassName('empty_screen')[0]
     if (!newData) {
-        const app = document.getElementsByClassName('app_content')[0]
-        const empty = document.getElementsByClassName('empty_screen')[0]
-        app.style.display = "none";
-        empty.style.display = "grid";
         empty.innerHMTL = "Oops! Word not found."
     }
+    
+   
+    app.style.display = "flex";
+    empty.style.display = "none";
     const word_heading = document.getElementById('word_heading')
     const word_pne = document.getElementById('word_subtitle')
     
