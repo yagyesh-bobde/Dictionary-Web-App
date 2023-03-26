@@ -40,15 +40,34 @@ async function searchMeaning() {
     
 }
 
+
+function resetMeaningLists() {
+    document.querySelector('.word_div_desc ul').remove()
+    document.getElementById('word_verb_list').remove()
+    let list1 = document.createElement('ul')
+    let list2 = document.createElement('ul')
+
+    list1.classList.add('flex-col')
+    list1.id = "word_noun_list"
+
+    list2.classList.add(['flex-col', 'word_verb_list'])
+    list2.id = "word_verb_list"
+
+    let parent1 = document.getElementsByClassName('word_div_desc')[0]
+    parent1.insertBefore(list1 , parent1.children[1])
+    document.getElementsByClassName('word_div_desc')[1].append(list2)
+}
+
 function showData(newData) {
-    console.log(newData)
+    resetMeaningLists()
     const app = document.getElementsByClassName('app_content')[0]
     const empty = document.getElementsByClassName('empty_screen')[0]
+    
     if (!newData) {
         empty.innerHMTL = "Oops! Word not found."
     }
     
-   
+    
     app.style.display = "flex";
     empty.style.display = "none";
     const word_heading = document.getElementById('word_heading')
@@ -59,9 +78,10 @@ function showData(newData) {
     word_pne.textContent = newData.phonetic;
 
     //* meaning
-        // * meaning - noun
+    // * meaning - noun
     let nounMeaning = newData.meanings[0]
     let i = 0
+    resetMeaningLists()
     let nounDiv = document.querySelector('.word_div_desc ul')
     while (nounMeaning && nounMeaning.definitions && i < nounMeaning.definitions.length){
         let newLi = document.createElement('li')
@@ -94,6 +114,7 @@ function showData(newData) {
     console.log(newData)
     
 }
+
 
 
 function playAudio() {
